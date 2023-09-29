@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2009
+# Kills the 4-to_infinity_and_beyond process
+
+# Store the PID in a file
+pgrep -f 4-to_infinity_and_beyond > pidfile.txt
+
+# Read the PID from the file and kill the process
+pid=$(<pidfile.txt)
+kill "$pid"
+
+# Clean up the file
+rm pidfile.txt
